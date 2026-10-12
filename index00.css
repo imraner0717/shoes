@@ -1,0 +1,305 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* MAIN PRODUCT CONTAINER */
+.product-container {
+    width: 100%;
+    max-width: 665px;
+    min-height: 385px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* LEFT IMAGE CARD */
+.product-image {
+    width: 64%;
+    height: 360px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #ff8b8e, #ff1645);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.product-image::before {
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    top: 50px;
+    left: 40px;
+}
+
+.brand {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    font-size: 125px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.08);
+    z-index: 1;
+}
+
+.shoe {
+    position: absolute;
+    z-index: 2;
+    width: 115%;
+    height: 85%;
+    object-fit: contain;
+    top: 5%;
+    left: -8%;
+    transform: rotate(-15deg);
+    filter: drop-shadow(0 15px 12px rgba(0, 0, 0, 0.2));
+    transition: transform 0.4s ease;
+}
+
+.product-image:hover .shoe {
+    transform: rotate(-10deg) scale(1.05);
+}
+
+/* IMAGE ICON */
+.image-icon {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    color: white;
+    font-size: 35px;
+    z-index: 3;
+}
+
+/* IMAGE DOTS */
+.image-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 3;
+}
+
+.image-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.image-dots .selected {
+    background: white;
+}
+
+/* RIGHT DETAILS CARD */
+.product-details {
+    width: 43%;
+    min-height: 410px;
+    background: #fff;
+    position: relative;
+    z-index: 4;
+    margin-left: -5%;
+    padding: 20px 24px;
+    border-radius: 3px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* PRICE AND STARS */
+.price-rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    margin-bottom: 18px;
+}
+
+.stars {
+    color: #f5d323;
+    font-size: 19px;
+    letter-spacing: -2px;
+    white-space: nowrap;
+}
+
+.price {
+    color: #555;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+/* PRODUCT TITLE */
+.product-details h2 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.description {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 18px;
+}
+
+/* COLOR SELECTION */
+.product-details h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.colors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+    margin-bottom: 20px;
+}
+
+.color {
+    width: 17px;
+    height: 17px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.color.purple {
+    background: #d56ad9;
+}
+
+.color.red {
+    background: #f3334c;
+}
+
+.color.yellow {
+    background: #f1d64b;
+}
+
+.color.green {
+    background: #65e875;
+}
+
+.color.active::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+}
+
+/* SIZE SELECTION */
+.sizes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 24px;
+}
+
+.size {
+    width: 34px;
+    height: 34px;
+    border: 2px solid transparent;
+    background: transparent;
+    color: #555;
+    border-radius: 50%;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.size:hover {
+    border-color: #ddd;
+}
+
+.size.active {
+    border-color: #ddd;
+    background: #fff;
+}
+
+/* ADD TO CART */
+.cart-button {
+    width: 100%;
+    height: 42px;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    background: linear-gradient(100deg, #ff6b80, #ff354e);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 5px 12px rgba(255, 65, 95, 0.25);
+    transition: 0.3s;
+}
+
+.cart-button:hover {
+    background: linear-gradient(100deg, #ff354e, #ed1739);
+    transform: translateY(-2px);
+}
+
+/* WISHLIST */
+.wishlist {
+    display: block;
+    text-align: center;
+    margin-top: 14px;
+    color: #777;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    body {
+        padding: 30px 15px;
+    }
+
+    .product-container {
+        flex-direction: column;
+        max-width: 350px;
+        gap: 0;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 260px;
+    }
+
+    .product-details {
+        width: 90%;
+        min-height: auto;
+        margin-left: 0;
+        margin-top: -25px;
+        padding: 22px;
+    }
+
+    .brand {
+        font-size: 100px;
+        top: 75px;
+    }
+
+    .shoe {
+        width: 110%;
+        height: 85%;
+        left: -5%;
+    }
+}

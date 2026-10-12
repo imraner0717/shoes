@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Air Max Shoes</title>
+    <link rel="stylesheet" href="index00.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="product-container">
+
+        <!-- SHOE IMAGE SECTION -->
+        <div class="product-image">
+
+            <div class="brand">NIKE</div>
+
+            <img
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=90"
+                alt="Red Nike running shoe"
+                class="shoe"
+            >
+
+            <div class="image-icon">☼</div>
+
+            <div class="image-dots">
+                <span></span>
+                <span></span>
+                <span class="selected"></span>
+            </div>
+
+        </div>
+
+        <!-- PRODUCT DETAILS -->
+        <div class="product-details">
+
+            <div class="price-rating">
+                <div class="stars">★★★★★</div>
+                <div class="price">$ 200.00</div>
+            </div>
+
+            <h2>Nike Air Max for Men</h2>
+
+            <p class="description">Men's Running Shoes.</p>
+
+            <!-- COLORS -->
+            <h3>Color:</h3>
+
+            <div class="colors">
+                <button class="color purple" aria-label="Purple" data-color="Purple"></button>
+                <button class="color red active" aria-label="Red" data-color="Red"></button>
+                <button class="color yellow" aria-label="Yellow" data-color="Yellow"></button>
+                <button class="color green" aria-label="Green" data-color="Green"></button>
+            </div>
+
+            <!-- SIZES -->
+            <h3>Size:</h3>
+
+            <div class="sizes">
+                <button class="size">40</button>
+                <button class="size">41</button>
+                <button class="size active">42</button>
+                <button class="size">43</button>
+            </div>
+
+            <!-- BUTTON -->
+            <button class="cart-button">ADD TO CART</button>
+
+            <a href="#" class="wishlist">Add to Wishlist</a>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Select a color
+        const colors = document.querySelectorAll(".color");
+
+        colors.forEach(color => {
+            color.addEventListener("click", () => {
+                colors.forEach(item => item.classList.remove("active"));
+                color.classList.add("active");
+            });
+        });
+
+        // Select a shoe size
+        const sizes = document.querySelectorAll(".size");
+
+        sizes.forEach(size => {
+            size.addEventListener("click", () => {
+                sizes.forEach(item => item.classList.remove("active"));
+                size.classList.add("active");
+            });
+        });
+
+        // Add to cart
+        document.querySelector(".cart-button").addEventListener("click", () => {
+            const selectedSize = document.querySelector(".size.active").textContent;
+            const selectedColor = document.querySelector(".color.active").dataset.color;
+
+            alert(
+                "Nike Air Max added to cart!\n" +
+                "Color: " + selectedColor + "\n" +
+                "Size: " + selectedSize + "\n" +
+                "Price: $200.00"
+            );
+        });
+
+        // Wishlist
+        document.querySelector(".wishlist").addEventListener("click", event => {
+            event.preventDefault();
+            event.target.textContent =
+                event.target.textContent === "Add to Wishlist"
+                ? "♥ Added to Wishlist"
+                : "Add to Wishlist";
+        });
+    </script>
+
+</body>
+</html>
